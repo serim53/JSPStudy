@@ -1,0 +1,12 @@
+<%@page contentType="text/html; charset=UTF-8"%>
+
+<br><br>
+<hr>
+<br>
+<center>
+회사 주소 : 서울시 강남구 압구정동<br>
+문의 전화 : 02-1234-1234
+</center>
+
+</body>
+</html>

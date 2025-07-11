@@ -1,0 +1,85 @@
+package com.multicampus.biz.common;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class JDBCUtil {
+	
+	public static Connection getConnection() {
+		try {
+			// 1단계 : 드라이버 객체 생성 및 등록
+			DriverManager.registerDriver(new org.h2.Driver());
+			
+			// 2단계 : 커넥션 연결
+			// Connection은 인터페이스이다. DB를 연결하게 도와주는 리모콘 개념.
+			// Connection는 결국 h2 lib에 내장되어있는 JDBCConnection 객체를 참조하여 동작한다.
+			// DB 종류가 바뀌어도 getConnection 메소드 안의 내용이 바뀔 뿐 이 코드의 전체 틀은 바뀌지 않는다 => DB비종속성
+			return DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static void close(PreparedStatement stmt, Connection conn) {
+		// 5단계 : 연결 해제
+		// stmt는 고속버스, conn은 고속도로 => 무조건 stmt를 먼저 close해야한다.
+		// stmt.close(); conn.close();를 순서대로 실행한다고 안전하게 연결 해제가 되지 않는 이유는
+		// stmt close 도중 에러가 나면 conn.close()는 실행조차 되지 않기 때문이다.
+		// connection을 연결하는 것은 굉장히 비싼 작업이므로 close를 무조건 실행할 수 있게 해야한다.
+		try {
+			if (stmt != null)
+				stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			stmt = null;
+		}
+		
+		try {
+			if (conn != null && !conn.isClosed())
+				conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			conn = null;
+		}
+	}
+	
+	public static void close(ResultSet rs, PreparedStatement stmt, Connection conn) {
+		// 5단계 : 연결 해제
+		// stmt는 고속버스, conn은 고속도로 => 무조건 stmt를 먼저 close해야한다.
+		// stmt.close(); conn.close();를 순서대로 실행한다고 안전하게 연결 해제가 되지 않는 이유는
+		// stmt close 도중 에러가 나면 conn.close()는 실행조차 되지 않기 때문이다.
+		// connection을 연결하는 것은 굉장히 비싼 작업이므로 close를 무조건 실행할 수 있게 해야한다.
+		try {
+			if (rs != null)
+				rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			rs = null;
+		}
+		
+		try {
+			if (stmt != null)
+				stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			stmt = null;
+		}
+		
+		try {
+			if (conn != null && !conn.isClosed())
+				conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			conn = null;
+		}
+	}
+}

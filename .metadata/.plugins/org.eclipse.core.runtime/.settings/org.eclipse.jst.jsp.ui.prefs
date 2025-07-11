@@ -1,0 +1,22 @@
+SCRIPT_AREA_BORDER=\#D8D8D8 | null | null | null | null | null
+SCRIPT_AREA_BORDER,defaultValueBeforeOverriddenFromCSS=\#bf5f3f | null | false
+commentBorder=\#C7DD0C | null | null | false | null | null
+commentBorder,defaultValueBeforeOverriddenFromCSS=\#3f5fbf | null | false
+commentText=\#C7DD0C | null | null | false | null | null
+commentText,defaultValueBeforeOverriddenFromCSS=\#3f5fbf | null | false
+eclipse.preferences.version=1
+jsp_content=\#D8D8D8 | null | null | null | null | null
+jsp_content,defaultValueBeforeOverriddenFromCSS=null | null | false
+newFileTemplateName=New JSP File (html 4.01)
+org.eclipse.wst.sse.ui.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates><template autoinsert\="true" context\="jsp_new" deleted\="false" description\="JSP with html 4.01 markup" enabled\="true" id\="org.eclipse.jst.jsp.ui.templates.jsphtml" name\="New JSP File (html 4.01)">&lt;%@page contentType\="text/html; charset\=UTF-8"%&gt;\r\n&lt;\!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http\://www.w3.org/TR/html4/loose.dtd"&gt;\r\n&lt;html&gt;\r\n&lt;head&gt;\r\n&lt;meta http-equiv\="Content-Type" content\="text/html; charset\=UTF-8"&gt;\r\n&lt;title&gt;JSP \uC608\uC81C&lt;/title&gt;\r\n&lt;/head&gt;\r\n&lt;body&gt;\r\n&lt;center&gt;\r\n&lt;h1&gt;\uBE0C\uB77C\uC6B0\uC800\uC5D0 \uCD9C\uB825\uD560 \uD654\uBA74&lt;/h1&gt;\r\n&lt;hr&gt;\r\n&lt;/center&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;</template></templates>
+overriddenByCSS=,SCRIPT_AREA_BORDER,commentBorder,commentText,jsp_content,tagAttributeEquals,tagAttributeName,tagAttributeValue,tagBorder,tagName,
+tagAttributeEquals=\#D8D8D8 | null | null | null | null | null
+tagAttributeEquals,defaultValueBeforeOverriddenFromCSS=null | null | false
+tagAttributeName=\#8DCBE2 | null | null | null | null | null
+tagAttributeName,defaultValueBeforeOverriddenFromCSS=\#7f007f | null | false
+tagAttributeValue=\#FFC600 | null | null | null | null | null
+tagAttributeValue,defaultValueBeforeOverriddenFromCSS=\#2a00ff | null | false | true
+tagBorder=\#FFFFFF | null | null | null | null | null
+tagBorder,defaultValueBeforeOverriddenFromCSS=\#008080 | null | false
+tagName=\#03a8d8 | null | true | false | false | false
+tagName,defaultValueBeforeOverriddenFromCSS=\#3f7f7f | null | false

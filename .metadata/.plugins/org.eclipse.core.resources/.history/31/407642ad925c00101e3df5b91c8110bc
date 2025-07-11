@@ -1,0 +1,31 @@
+package com.multicampus.web.common;
+
+import java.io.IOException;
+
+import jakarta.servlet.Filter;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.FilterConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpFilter;
+
+public class TimeCheckFilter extends HttpFilter implements Filter {
+       
+    public TimeCheckFilter() {
+        System.out.println("===> TimeCheckFilter 생성");
+    }
+    
+    public void init(FilterConfig fConfig) throws ServletException {
+        System.out.println("===> init() 실행");
+	}
+
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        System.out.println("===> doFilter() 실행");
+		chain.doFilter(request, response);
+	}
+	
+	public void destroy() {
+        System.out.println("===> destroy() 실행");
+	}
+}

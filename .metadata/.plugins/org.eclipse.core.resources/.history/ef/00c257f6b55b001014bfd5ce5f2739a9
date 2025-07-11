@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>회원가입</title>
+</head>
+<body>
+<h1>회원 가입</h1>
+<hr>
+아이디 : <input type="text" size="20"/><br>
+비밀번호 : <input type="password" size="20"/><br>
+이름 : <input type="text"/><br>
+권한 : <input name="role" type="radio" checked/>USER 
+      <input name="role" type="radio"/>ADMIN<br>
+자기소개 : <textarea rows="10" cols="40">내용입력...</textarea>
+</body>
+</html>

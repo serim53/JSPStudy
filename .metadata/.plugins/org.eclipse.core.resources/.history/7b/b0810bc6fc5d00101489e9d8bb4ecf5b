@@ -1,0 +1,25 @@
+package com.multicampus.web;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class HandlerMapping {
+	
+	private Map<String, Controller> mappings;
+	
+	public HandlerMapping() {
+		// Map에 모든 Controller 객체들을 등록한다.
+		mappings = new HashMap<String, Controller>();
+		mappings.put("/.do", new BoardController());
+	}
+	
+	public Controller getController(String path) {
+		
+		
+		
+		public Controller getController(String path) {
+			// path에 해당하는 Controller 객체를 검색하여 리턴한다.
+			return mappings.get(path);
+		}
+	}
+}

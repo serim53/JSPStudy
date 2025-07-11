@@ -1,0 +1,29 @@
+1752110003508	Delete element
+1752110020570	Delete elements
+1752111177442	Delete element
+1752116681416	Rename resource 'insertUser.html'
+1752116858234	Rename resource 'login.html'
+1752126645680	Copy file
+1752126653346	Rename resource 'logout_proc2.jsp'
+1752126776887	Copy file
+1752127015920	Copy file
+1752127371254	Delete element
+1752127632815	Copy file
+1752128075165	Copy file
+1752129222005	Copy file
+1752129228159	Rename resource 'deleteBoard_proc2.jsp'
+1752131476694	Delete elements
+1752131489173	Delete elements
+1752131597398	Delete elements
+1752132825055	Delete element
+1752133184240	Delete element
+1752133205941	Delete element
+1752193568625	Delete elements
+1752193574820	Delete element
+1752194399910	Move 'errors' to 'WEB-INF'
+1752194418521	Move 5 resources to 'WEB-INF'
+1752194439131	Move 'layout' to 'WEB-INF'
+1752194459429	Move 3 resources to 'board'
+1752194474611	Move 2 resources to 'board'
+1752198026803	Copy compilation unit
+1752198034574	Rename type 'DispatcherServletBackUp'

@@ -1,0 +1,85 @@
+<%@page import="java.util.List"%>
+<%@page import="com.multicampus.biz.board.BoardDAO"%>
+<%@page import="com.multicampus.biz.board.BoardVO"%>
+<%@page contentType="text/html; charset=UTF-8"%>
+
+<%@include file="../layout/header.jsp" %>
+
+<%
+	// 1. 사용자 입력정보 추출
+	String condition = request.getParameter("condition");
+	String keyword = request.getParameter("keyword");
+
+	// null check
+	if (condition == null) condition = "title";
+	if (keyword == null) keyword = "";
+	
+	request.setAttribute("condition", condition);
+	request.setAttribute("keyword", keyword);
+	
+	// 2. DB 연동 처리
+	BoardVO vo = new BoardVO();
+	vo.setCondition(condition);
+	vo.setKeyword(keyword);
+	
+	BoardDAO dao = new BoardDAO();
+	List<BoardVO> boardList = dao.getBoardList(vo);
+	
+	// 3. 응답 화면 구성
+%>
+<center>
+<!-- 검색 시작 -->
+<form action="getBoardList.jsp" method="get">
+<table border="1" cellpadding="0" cellspacing="0" width="800">
+	<tr>
+		<td align="right">
+			<select name="condition">
+				<%
+					String searchCondition = (String) request.getAttribute("condition");
+				%>
+				<%
+					if(searchCondition.equals("title")) {
+				%>
+				<option value="title" selected>제목
+				<%
+					} else {
+				%>
+				<option value="title">제목
+				<%
+					}
+				%>
+				<option value="title">제목
+				<option value="content">내용
+			</select>
+			<input name="keyword" type="text" value="<%= request.getAttribute("keyword") %>"/>
+			<input type="submit" value="검색"/>
+		</td>
+	</tr>
+</table>
+</form>
+<table border="1" cellpadding="0" cellspacing="0" width="800">
+	<tr>
+		<th bgcolor="orange" width="100">번호</th>
+		<th bgcolor="orange" width="400">제목</th>
+		<th bgcolor="orange" width="100">작성자</th>
+		<th bgcolor="orange" width="100">등록일</th>
+		<th bgcolor="orange" width="100">조회수</th>
+	</tr>
+<%
+	for(BoardVO board : boardList) {
+%>
+	<tr>
+		<td><%= board.getSeq() %></td>
+		<td><a href="getBoard.jsp?seq=<%= board.getSeq() %>"><%= board.getTitle() %></a></td>
+		<td><%= board.getWriter() %></td>
+		<td><%= board.getRegDate() %></td>
+		<td><%= board.getCnt() %></td>
+	</tr>
+<%
+	}
+%>
+</table>
+</center>
+</body>
+</html>
+<%@include file="../layout/footer.jsp" %>

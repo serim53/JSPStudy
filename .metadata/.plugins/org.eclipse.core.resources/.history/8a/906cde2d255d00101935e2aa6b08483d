@@ -1,0 +1,38 @@
+package com.multicampus.web.common;
+
+import jakarta.servlet.ServletContextAttributeEvent;
+import jakarta.servlet.ServletContextAttributeListener;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
+
+@WebListener
+public class BoardServletContextListener implements ServletContextListener, ServletContextAttributeListener {
+
+    public BoardServletContextListener() {
+    	System.out.println("===> BoardServletContextListener 생성");
+    }
+
+    public void contextInitialized(ServletContextEvent sce)  { 
+    	System.out.println("---> 서블릿 컨테이너가 생성되었습니다.");
+    }
+
+    public void contextDestroyed(ServletContextEvent sce)  { 
+    	System.out.println("---> 서블릿 컨테이너가 종료되었습니다.");
+    }
+    
+    @Override
+    public void attributeAdded(ServletContextAttributeEvent event) {
+    	System.out.println("---> ServletContext 객체에 뭔가 등록됨");
+    }
+    
+    @Override
+    public void attributeReplaced(ServletContextAttributeEvent event) {
+    	System.out.println("---> ServletContext 객체에 뭔가 대체됨");
+    }
+    
+    @Override
+    public void attributeRemoved(ServletContextAttributeEvent event) {
+    	System.out.println("---> ServletContext 객체에 뭔가 대체됨");
+    }
+}

@@ -1,0 +1,9 @@
+package com.multicampus.web;
+
+public class HandlerMapping {
+
+	public Controller getController(String path) {
+		// path에 해당하는 Controller 객체를 검색하여 리턴한다.
+		return null;
+	}
+}

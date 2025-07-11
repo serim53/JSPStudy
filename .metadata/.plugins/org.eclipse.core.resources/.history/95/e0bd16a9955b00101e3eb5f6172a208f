@@ -1,0 +1,33 @@
+package com.multicampus.biz.common;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class JDBCUtil {
+	
+	public static Connection getConnection() {
+		try {
+			// 1단계 : 드라이버 객체 생성 및 등록
+			DriverManager.registerDriver(new org.h2.Driver());
+			
+			// 2단계 : 커넥션 연결
+			// Connection은 인터페이스이다. DB를 연결하게 도와주는 리모콘 개념.
+			// Connection는 결국 h2 lib에 내장되어있는 JDBCConnection 객체를 참조하여 동작한다.
+			// DB 종류가 바뀌어도 getConnection 메소드 안의 내용이 바뀔 뿐 이 코드의 전체 틀은 바뀌지 않는다 => DB비종속성
+			return DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static void close(PreparedStatement stmt, Connection conn) {
+		
+	}
+	
+	public static void close(ResultSet rs, PreparedStatement stmt, Connection conn) {
+		
+	}
+}

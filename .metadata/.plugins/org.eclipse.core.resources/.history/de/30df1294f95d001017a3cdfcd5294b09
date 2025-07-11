@@ -1,0 +1,10 @@
+package com.multicampus.web;
+
+public class HandlerMapping {
+
+	public Controller getController(String path) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

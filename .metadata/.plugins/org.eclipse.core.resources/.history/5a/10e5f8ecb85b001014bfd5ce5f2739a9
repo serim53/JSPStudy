@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>회원가입</title>
+</head>
+<body>
+<h1>회원 가입</h1>
+<hr>
+<form action="insertUser.do" method="get">
+
+<table border="1" cellpadding="0" cellspacing="0" width="500">
+	<tr>
+		<td>아이디</td>
+		<td>111</td>
+	</tr>
+	<tr>
+		<td>비밀번호</td>
+		<td>111</td>
+	</tr>
+	<tr>
+		<td>이름</td>
+		<td>111</td>
+	</tr>
+	<tr>
+		<td>권한</td>
+		<td>111</td>
+	</tr>
+	<tr>
+		<td>자기소개</td>
+		<td>111</td>
+	</tr>
+	<tr>
+		<td>언어경험</td>
+		<td>111</td>
+	</tr>
+	<tr>
+		<td>나이</td>
+		<td>111</td>
+	</tr>
+</table>
+아이디 : <input type="text" size="20"/><br>
+비밀번호 : <input type="password" size="20"/><br>
+이름 : <input type="text"/><br>
+권한 : <input name="role" type="radio" checked/>USER 
+      <input name="role" type="radio"/>ADMIN<br>
+자기소개 : <textarea rows="10" cols="40">내용입력...</textarea><br>
+언어 경험 : <input type="checkbox" checked/>Java
+		  <input type="checkbox"/>C
+		  <input type="checkbox" checked/>Python
+		  <input type="checkbox"/>Javascript<br>
+나이 : <select>
+		<option>--선택--
+		<option>10대
+		<option>20대
+		<option>30대
+		<option>40대
+		<option>50대
+		<option>60대 이상
+	  </select><br>
+<input type="submit" value="전송버튼"/>
+<input type="reset" value="취소버튼"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+package com.multicampus.web.board;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import com.multicampus.biz.board.BoardDAO;
+import com.multicampus.biz.board.BoardVO;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class GetBoardListServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("===> 글 목록 검색 처리");
+		
+		// 1. DB 연동 처리
+		BoardDAO dao = new BoardDAO();
+		List<BoardVO> boardList = dao.getBoardList();
+		
+		// 2. 응답 화면 전송
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		out.println("<h1>게시글 목록</h1><br>");
+		out.println("<hr>");
+		
+		for (BoardVO board : boardList) {
+			out.println("---> " + board.toString() + "<br>");
+		}
+		
+		out.println("<hr>");
+		out.println("<a href='insertBoard.html'>글 등록 화면으로 이동</a>");
+		
+		// 출력 스트림을 종료한다.
+		out.close();
+	}
+}

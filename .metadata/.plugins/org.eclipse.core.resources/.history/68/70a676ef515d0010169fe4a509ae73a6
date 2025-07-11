@@ -1,0 +1,12 @@
+<%@page import="com.multicampus.biz.user.UserDAO"%>
+<%@page import="com.multicampus.biz.user.UserVO"%>
+<%@page contentType="text/html; charset=UTF-8"%>
+
+<%
+	//로그아웃을 요청한 브랄우저와 매핑된 세션을 강제로 종료한다.
+	HttpSession session = request.getSession();
+	session.invalidate();
+	
+	// 화면 이동
+	response.sendRedirect("/");
+%>

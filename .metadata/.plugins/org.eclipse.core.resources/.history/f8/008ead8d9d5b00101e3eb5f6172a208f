@@ -1,0 +1,95 @@
+package com.multicampus.biz.user;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.multicampus.biz.common.JDBCUtil;
+
+// DAO(Data Access Object) : 데이터베이스 관련 작업을 실질적으로 처리하는 클래스 
+public class UserDAO {
+	// JDBC 관련 변수
+	Connection conn = null;
+	PreparedStatement stmt = null;
+	ResultSet rs = null;
+	
+	// USERS 테이블 관련 SQL
+	private String user_insert = "insert into users(id, password, name, role) values(?, ?, ?, ?)";
+	private String user_update = "update users set name = ?, role = ? where id = ?";
+	private String user_delete = "delete users where id = ?";
+	private String user_list = "select * from users where role = ? order by id asc";
+	
+	// USERS 테이블 관련 CRUD 기능의 메소드 구현
+	// 회원 등록
+	public void insertUser(String id, String password, String name, String role) {
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(user_insert);
+			stmt.setString(1, id);
+			stmt.setString(2, password);
+			stmt.setString(3, name);
+			stmt.setString(4, role);
+			stmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+		}
+	}
+	// 회원 수정
+	public void updateUser(String id, String name, String role) {
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(user_update);
+			
+			// 4단계 : SQL 전송
+			// 파라미터(?) 값 설정
+			stmt.setString(1, id);
+			stmt.setString(2, name);
+			stmt.setString(3, role);
+			int count = stmt.executeUpdate();
+			System.out.println(count + "건의 데이터가 처리됨");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+		}
+	}
+	// 회원 삭제
+	public void deleteUser(String id) {
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(user_delete);
+			stmt.setString(1, id);
+			int count = stmt.executeUpdate();
+			System.out.println(count + "건의 데이터가 처리됨");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+		}
+	}
+	// 회원 목록 검색
+	public void getUserList(String keyword) {
+		try {
+			conn = JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(user_list);
+			stmt.setString(1, keyword);
+			rs = stmt.executeQuery();
+			
+			System.out.println("[ 회원 목록 ]");
+			while(rs.next()) {
+				System.out.print(rs.getString("ID") + " : ");
+				System.out.print(rs.getString("PASSWORD") + " : ");
+				System.out.print(rs.getString("NAME") + " : ");
+				System.out.print(rs.getString("ROLE") + "\n");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+		}
+	}
+}

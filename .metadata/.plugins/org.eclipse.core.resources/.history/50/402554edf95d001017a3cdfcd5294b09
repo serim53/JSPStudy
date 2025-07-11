@@ -1,0 +1,5 @@
+package com.multicampus.web;
+
+public interface Controller {
+
+}
