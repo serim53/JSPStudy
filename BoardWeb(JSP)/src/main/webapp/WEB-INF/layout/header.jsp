@@ -2,6 +2,10 @@
 <%@page errorPage="errors/boardError.jsp"%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<!-- lang이라는 파라미터를 통해 전달된 Locale을 추출하여 세션에 등록하고 세션에 종료될 때까지 해당 언어를 유지한다. -->
+<fmt:setLocale value="${param.lang }" scope="session"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

@@ -1,7 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 
 <br><br>
-<hr>
 <br>
 <center>
 회사 주소 : 서울시 강남구 압구정동<br>
@@ -9,4 +8,4 @@
 </center>
 
 </body>
-</html>
+</html><hr>
